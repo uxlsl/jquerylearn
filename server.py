@@ -4,6 +4,10 @@ import random
 from bottle import route, run, static_file,request
 
 
+@route('/hello')
+def hello():
+    return json.dumps({'time':datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")})
+
 @route('/people')
 def index():
     data = []
