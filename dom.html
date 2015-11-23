@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>dom</title>
+    <!-- 引入 jQuery -->
+    <script src="../scripts/jquery.js" type="text/javascript"></script>
+    <script type="text/javascript">
+  $(document).ready(function(){
+    document.title = "hello world";
+    console.log(document.URL);
+    console.log(document.domain);
+    console.log(document.images)
+    console.log(document.images[0].src)
+    // 可通过namedItem取得
+    console.log(document.images.namedItem("protect"))
+    // 多个只返回第一个
+    console.log(document.getElementById("hello"));
+    console.log(document.getElementById("hello").nextSibling);
+    console.log(document.getElementById("hello").previousSibling);
+    console.log(document.getElementById("erer"));
+    var hello = document.getElementById("hello");
+    console.log(hello.nodeType);
+    console.log(hello.nodeName);
+    console.log(hello.nodeValue);
+    console.log(hello.tagName);
+    hello.setAttribute("id", "world");
+    console.log(hello.attributes);
+    var element = document.createElement("div");
+    element.className="message";
+
+    var textNode = document.createTextNode("<strong>hello world!lsl</strong>");
+    element.appendChild(textNode);
+    document.body.appendChild(textNode);
+    console.log(textNode.nodeValue);
+
+    var element1 = document.createElement("div");
+    var button = document.createElement("button");
+    element1.appendChild(button);
+    document.body.appendChild(element1);
+
+
+    var ul = document.createElement("ul");
+    ul.id = "myList";
+    for(var i=0;i < 3; i++){
+      var li = document.createElement("li");
+      var li_text = document.createTextNode(String(i));
+      li.appendChild(li_text);
+      ul.appendChild(li);
+    };
+    document.body.appendChild(ul);
+    //    document.writeln(new Date().toString());
+    var x = document.getElementById("myList");
+    console.log(x.childNodes);
+    console.log(x.firstChild);
+    console.log(x.childNodes[0] == x.firstChild);
+    console.log(x.childNodes.length);
+
+    for(var i = 0; i < x.childNodes.length; i++){
+      console.log(x.childNodes[i]);
+    };
+    var b = x.cloneNode(true);
+    document.body.appendChild(b);
+
+    var imgs = document.images;
+
+    console.log(imgs[0]);
+    console.log(imgs["protect1"]);
+    console.log(imgs.length);
+    imgs[0].id="protect";
+    console.log(document.images);
+    var protect = document.getElementById("protect");
+    console.log(protect);
+    var i = protect;
+    console.log(protect);
+    while(true){
+      i = i.nextSibling;
+      if (i == protect || i == null){
+        break;
+      };
+      console.log(i);
+    }
+  });
+    </script>
+  </head>
+  <body>
+    <p> hello world!</p>
+    <div id="hello" value="world">
+      <img src="/img/protect.jpg" name="protect1"/>
+      <img src="/img/protect.jpg" name="protect2"/>
+      <img src="/img/protect.jpg" name="protect3"/>
+      <img src="/img/protect.jpg" name="protect4"/>
+      <img src="/img/protect.jpg" name="protect5"/>
+      <img src="/img/protect.jpg" name="protect6"/>
+    </div>
+    <div id="hello">
+    </div>
+  </body>
+</html>

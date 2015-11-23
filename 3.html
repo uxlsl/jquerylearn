@@ -10,12 +10,12 @@
   {
     var $p = $("p");
     var p_text = $p.text();
-    alert(p_text);
+//    alert(p_text);
     var li = $("li:eq(0)");
-    alert(li.attr("title"));
+//    alert(li.attr("title"));
     // 可以看出默认是第一个,所以要做的就是要确定选择哪一个.
     var li = $("li");
-    alert(li.attr("title"));
+//    alert(li.attr("title"));
     //　元素插入
     var $li1 = $("<li title='香蕉'> 香蕉</li>")
     $("ul").append($li1);
@@ -26,8 +26,29 @@
 
     $("li:eq(0)").clone().appendTo("ul");
 
-    $("p").replaceWith("<strong>你最不喜欢的水果是?</strong>");
+//    $("p").replaceWith("<strong>你最不喜欢的水果是?</strong>");
 
+    // 多个元素同时插入.
+    $("li").clone().appendTo("ul");
+
+    // 删除节点
+
+    var  $li1 = $("li:eq(0)")
+    $li1.click(function()
+               {
+
+                 alert("hello");
+               }
+
+              )
+    // 测试事件在删除后重新添加的情况.
+    //    $li1.remove();
+    $li1.detach();
+    $li1.appendTo("ul");
+    //    $("ul").empty();
+    var $p1 = $("p");
+    $p1.attr({"name":"foo"});
+    $p1.clone().appendTo("body");
   });
 </script>
 </head>

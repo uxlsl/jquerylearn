@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>artdialog</title>
+    <!-- 引入 jQuery -->
+  <script src="../scripts/jquery.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="../scripts/artDialog/css/ui-dialog.css">
+  <script src="../scripts/artDialog/dist/dialog-min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+  $(document).ready(function(){
+    $("h1").click(function(){
+      var d = dialog({
+        title: '欢迎',
+        content: $("#form").clone(),
+        ok: function(){
+          console.log("close");
+          return true
+        }
+      });
+      d.show();
+    })
+
+  });
+   </script>
+  </head>
+  <body>
+
+  <h1 id="hello"> hello world!</h1>
+  <h2 > 中国好</h2>
+  <form id="form">
+  <input type="text"> </input>
+  <input type="text"> </input>
+  <input type="text"> </input>
+  </form>
+</body>
+</html>
